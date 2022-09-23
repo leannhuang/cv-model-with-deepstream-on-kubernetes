@@ -55,7 +55,7 @@ bitrate=2000000
 #H264 Profile - 0=Baseline 2=Main 4=High
 #H265 Profile - 0=Main 1=Main10
 profile=0
-output-file=out.mp4
+output-file=/fileout/out.mp4
 source-id=0
 
 [sink2]
