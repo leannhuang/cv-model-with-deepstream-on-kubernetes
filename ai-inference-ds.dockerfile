@@ -17,6 +17,7 @@ RUN apt-get update -y && apt-get install --no-install-recommends -y \
 
 WORKDIR /opt/nvidia/deepstream/deepstream-6.1/samples/configs/deepstream-app/
 RUN mkdir /opt/nvidia/deepstream/deepstream-6.1/samples/configs/deepstream-app/MyCustomThings
+RUN mkdir /fileout
 COPY MyCustomThings /opt/nvidia/deepstream/deepstream-6.1/samples/configs/deepstream-app/MyCustomThings
 
 RUN cp /opt/nvidia/deepstream/deepstream-6.1/samples/configs/deepstream-app/MyCustomThings/config_infer_custom_vision.txt /opt/nvidia/deepstream/deepstream-6.1/samples/configs/deepstream-app/ && \
