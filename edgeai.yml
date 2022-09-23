@@ -19,6 +19,13 @@ spec:
       labels:
         app: edgeai
     spec:
+      nodeSelector:
+        "kubernetes.io/hostname": <your node name>
+      volumes:
+      - name: test-volume
+        hostPath:
+          path: /tmp/aaa
+          type: ''
       containers:
       - name: edgeai
         image: "rgleanndeepstream.azurecr.io/edgeai:007"
@@ -27,13 +34,16 @@ spec:
         resources:
           limits:
             nvidia.com/gpu: 1
+        volumeMounts:
+          - name: test-volume
+            mountPath: /fileout
         securityContext:
             privileged: true
         env:
         - name: DISPLAY
           value: $DISPLAY
       imagePullSecrets:
-        - name: rgleanndeepstream
+        - name: acr-secret
 ---
 apiVersion: v1
 kind: Service
