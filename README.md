@@ -8,7 +8,7 @@ The goal of this readme is to guide you to containerize your own model generated
 
 ## Architecture
 
-![edge-ai-on-aks-on-hci](docs/images/edge-ai-on-aks-on-hci.png)
+![arch](docs/images/arch.png)
 
 ## Content
 | File             | Description                                                   |
