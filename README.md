@@ -7,6 +7,7 @@ The goal of this readme is to guide you to containerize your own model generated
 2. HCI VM with AKS installed
 
 ## Architecture
+
 ![edge-ai-on-aks-on-hci](docs/images/edge-ai-on-aks-on-hci.png)
 
 ## Content
