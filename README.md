@@ -8,7 +8,7 @@ The goal of this readme is to guide you to containerize your own model generated
 
 ## Architecture
 
-![arch](docs/images/arch.png)
+![arch](docs/images/arch-1.png)
 
 ## Content
 | File             | Description                                                   |
