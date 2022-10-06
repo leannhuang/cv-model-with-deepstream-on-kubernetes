@@ -83,21 +83,22 @@ The goal of this readme is to guide you to containerize your own model generated
 1. Create your own Azure Container Registry [here](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) or docker hub
 2. Open your terminal, and cd to the path with the same hierarchy with the `ai-inference-ds.dockerfile`
 3. Login to your registy
-        ```
+    ```
             az acr login --name <registry-name>
-        ```
+    ```
 4. Build the edge ai docker image
-        ```
+        
+    ```
             docker build -f ai-inference-ds.dockerfile -t <registry-name>.azurecr.io/edgeai:<tag> .
-        ```
+    ```
 5. Push your edge ai docker image to the ACR
-        ```
+    ```
             docker push <registry-name>.azurecr.io/edgeai:<tag>
-        ```
+    ```
 
 ### Step 4 - Deploy the corresponding yaml to kubernetes
 1. If you would like to set RTSP stream as your output to view the inference result:
-   1. Fill in your image url in the `edgeai-rtsp.yml` file
+   1. Fill in your image url in the `edgeai-rtsp.yml` file [here](https://github.com/leannhuang/cv-model-with-deepstream-on-kubernetes/blob/main/edgeai-rtsp.yml#L26)
         ```
             image: "<registry-name>.azurecr.io/edgeai:<tag>"
         ```
@@ -106,7 +107,7 @@ The goal of this readme is to guide you to containerize your own model generated
             kubectl apply -f <yaml file path>\edgeai-rtsp.yml
         ```
 2. If you would like to output a video with inference result:
-   1. Fill in your image url in the `edgeai-file.yml` file
+   1. Fill in your image url in the `edgeai-file.yml` file [here](https://github.com/leannhuang/cv-model-with-deepstream-on-kubernetes/blob/main/edgeai-file.yml#L31)
         ```
             image: "<registry-name>.azurecr.io/edgeai:<tag>"
         ```
