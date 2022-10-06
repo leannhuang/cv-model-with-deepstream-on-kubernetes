@@ -25,6 +25,7 @@ The goal of this readme is to guide you to containerize your own model generated
 
 ## Steps
 ### Step 1 - Export your model from custom vision website
+0. Clone the repository
 1. Create an object detection model as in [here](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/get-started-build-detector)
 
 2. Export your model with ONNX platform
