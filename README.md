@@ -79,7 +79,7 @@ The goal of this readme is to guide you to containerize your own model generated
         ```
 
 ### Step 3 - Containerize as a edge ai module and push to ACR or docker hub
-1. Create your own Azure Container Registry[here](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) or docker hub
+1. Create your own Azure Container Registry [here](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) or docker hub
 2. Open your terminal, and cd to the path with the same hierarchy with the `ai-inference-ds.dockerfile`
 3. Login to your registy
         ```
@@ -96,7 +96,7 @@ The goal of this readme is to guide you to containerize your own model generated
 
 ### Step 4 - Deploy the corresponding yaml to kubernetes
 1. If you would like to set RTSP stream as your output to view the inference result:
-   1. Fill in your image url in the edgeai-rtsp.yml file
+   1. Fill in your image url in the `edgeai-rtsp.yml` file
         ```
             image: "<registry-name>.azurecr.io/edgeai:<tag>"
         ```
@@ -105,7 +105,7 @@ The goal of this readme is to guide you to containerize your own model generated
             kubectl apply -f <yaml file path>\edgeai-rtsp.yml
         ```
 2. If you would like to output a video with inference result:
-   1. Fill in your image url in the edgeai-file.yml file
+   1. Fill in your image url in the `edgeai-file.yml` file
         ```
             image: "<registry-name>.azurecr.io/edgeai:<tag>"
         ```
@@ -126,11 +126,15 @@ The goal of this readme is to guide you to containerize your own model generated
     
 2. If you would like to output a video with inference result:
    1. The file `out.mp4` will be shared under the node /tmp/aaa folder. You can open the inference video once it has been fully generated
+   
     ![output](docs/images/output.png)
 
 ### Troubleshooting
 1. If you are not able to view the rtsp stream in the external node, double check the firewall rules setting for the VM installed k8s
-        ```
-        iptables -A INPUT -p tcp --dport 8554 -j ACCEPT
-        iptables -A OUTPUT -p tcp --dport 8554 -j ACCEPT
-        ```
+    ```
+    iptables -A INPUT -p tcp --dport 8554 -j ACCEPT
+    ```
+
+    ```
+    iptables -A OUTPUT -p tcp --dport 8554 -j ACCEPT
+    ```
