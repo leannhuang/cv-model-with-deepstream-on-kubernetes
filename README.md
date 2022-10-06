@@ -132,7 +132,7 @@ The goal of this readme is to guide you to containerize your own model generated
     ![output](docs/images/output.png)
 
 ### Troubleshooting
-1. If you are not able to view the rtsp stream in the external node, double check the firewall rules setting for the VM installed k8s
+1. If you are not able to view the rtsp stream in the external node, double check the firewall rules setting for the nodes
     ```
     iptables -A INPUT -p tcp --dport 8554 -j ACCEPT
     ```
