@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edgeai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: edgeai
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: edgeai
+    spec:
+      nodeSelector:
+        "kubernetes.io/hostname": <your node name>
+      volumes:
+      - name: test-volume
+        hostPath:
+          path: /tmp/aaa
+          type: ''
+      containers:
+      - name: edgeai
+        image: "<registry-name>.azurecr.io/edgeai:<tag>"
+        ports:
+        - containerPort: 8554
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+        volumeMounts:
+          - name: test-volume
+            mountPath: /fileout
+        securityContext:
+            privileged: true
+        env:
+        - name: DISPLAY
+          value: $DISPLAY
+      imagePullSecrets:
+        - name: acr-secret
