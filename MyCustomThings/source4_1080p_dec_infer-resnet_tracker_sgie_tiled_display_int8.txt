@@ -124,7 +124,7 @@ nvbuf-memory-type=0
 config-file=config_infer_custom_vision.txt
 
 [tracker]
-enable=1
+enable=0
 # For NvDCF and DeepSORT tracker, tracker-width and tracker-height must be a multiple of 32, respectively
 tracker-width=640
 tracker-height=384
@@ -140,7 +140,7 @@ enable-past-frame=1
 display-tracking-id=1
 
 [secondary-gie0]
-enable=1
+enable=0
 model-engine-file=../../models/Secondary_VehicleTypes/resnet18.caffemodel_b16_gpu0_int8.engine
 gpu-id=0
 batch-size=16
@@ -151,7 +151,7 @@ config-file=config_infer_secondary_vehicletypes.txt
 
 
 [secondary-gie1]
-enable=1
+enable=0
 model-engine-file=../../models/Secondary_CarColor/resnet18.caffemodel_b16_gpu0_int8.engine
 batch-size=16
 gpu-id=0
@@ -161,7 +161,7 @@ operate-on-class-ids=0;
 config-file=config_infer_secondary_carcolor.txt
 
 [secondary-gie2]
-enable=1
+enable=0
 model-engine-file=../../models/Secondary_CarMake/resnet18.caffemodel_b16_gpu0_int8.engine
 batch-size=16
 gpu-id=0
